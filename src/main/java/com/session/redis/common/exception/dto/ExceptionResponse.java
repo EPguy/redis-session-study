@@ -1,4 +1,4 @@
-package com.session.redis.exception.dto;
+package com.session.redis.common.exception.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

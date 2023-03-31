@@ -1,7 +1,9 @@
-package com.session.redis.exception.exception;
+package com.session.redis.common.exception.exception;
 
-import com.session.redis.exception.enums.ExceptionEnum;
+import com.session.redis.common.exception.enums.ExceptionEnum;
+import lombok.Getter;
 
+@Getter
 public class ApiException extends RuntimeException{
     private ExceptionEnum error;
 

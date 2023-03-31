@@ -5,6 +5,7 @@ import com.session.redis.user.entity.UserEntity;
 import lombok.Getter;
 
 @Getter
+@JsonIgnoreProperties({"password"})
 public class UserDto {
     private Long idx;
     private String id;

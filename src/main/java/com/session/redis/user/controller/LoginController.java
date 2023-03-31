@@ -1,25 +1,28 @@
 package com.session.redis.user.controller;
 
-import com.session.redis.exception.enums.ExceptionEnum;
-import com.session.redis.exception.exception.ApiException;
+import com.session.redis.common.exception.enums.ExceptionEnum;
+import com.session.redis.common.exception.exception.ApiException;
 import com.session.redis.user.dto.models.UserDto;
 import com.session.redis.user.dto.request.LoginRequestDto;
 import com.session.redis.user.dto.response.LoginResponseDto;
 import com.session.redis.user.entity.UserEntity;
 import com.session.redis.user.service.UserService;
 import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
 @RestController
+@RequiredArgsConstructor
 public class LoginController {
-    UserService userService;
+    private final UserService userService;
 
     @PostMapping("/login")
     public LoginResponseDto login(@RequestBody LoginRequestDto loginRequestDto, HttpSession session) {
         UserEntity userEntity = userService.getUserById(loginRequestDto.getId());
-        if(userEntity != null) {
+
+        if(userEntity == null) {
             throw new ApiException(ExceptionEnum.NOT_EXISTS_ID);
         }
 
