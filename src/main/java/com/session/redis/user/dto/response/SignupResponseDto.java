@@ -6,6 +6,6 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class LoginResponseDto {
+public class SignupResponseDto {
     private UserDto user;
 }

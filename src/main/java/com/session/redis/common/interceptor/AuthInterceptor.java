@@ -11,7 +11,7 @@ public class AuthInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         HttpSession session = request.getSession();
-        if(session.getAttribute("id") == null) {
+        if(session.getAttribute("email") == null) {
             throw new ApiException(ExceptionEnum.UNAUTHORIZED);
         }
         return true;
